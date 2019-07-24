@@ -1,0 +1,20 @@
+<dx-data-grid
+  id="gridContainer"
+  [dataSource]="employees"
+  [masterDetail]="{ enabled: true, template: 'detail' }"
+  keyExpr="ID"
+  [showBorders]="true"
+  [columns]="['FirstName', 'LastName', 'Position', 'State', 'BirthDate']">
+  <div *dxTemplate="let employee of 'detail'">
+    <dx-button
+      text="Focus row"
+      (onClick)="buttonClick($event, employee.key)">
+    </dx-button>
+    <dx-data-grid
+      id="detailGrid{{employee.key}}"
+      [dataSource]="getTasks(employee.key)"
+      [showBorders]="true"
+      [focusedRowEnabled]="true">
+    </dx-data-grid>
+  </div>
+</dx-data-grid>
