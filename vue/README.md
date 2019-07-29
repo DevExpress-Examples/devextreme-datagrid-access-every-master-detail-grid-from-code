@@ -1,3 +1,7 @@
 # Vue
 
-Take a look at the [App.vue](https://github.com/DevExpress-Examples/how-to-change-certain-Form-items-based-on-a-value-of-another-item/blob/18.2.7%2B/vue/src/App.vue) file of this example to see the required code.
+Take a look at the following files of this example to see the required code.
+
+[App.vue](https://github.com/DevExpress-Examples/DataGrid-Master-Detail-Access-every-detail-grid-from-code/blob/master/vue/src/App.vue)
+
+[DetailTemplate.vue](https://github.com/DevExpress-Examples/DataGrid-Master-Detail-Access-every-detail-grid-from-code/blob/master/vue/src/DetailTemplate.vue)
