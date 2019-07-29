@@ -1,6 +1,7 @@
 # React
 
-Take a look at the following file of this example to see the required code: 
+Take a look at the following files of this example to see the required code: 
 
-[App.js](https://github.com/DevExpress-Examples/how-to-change-certain-Form-items-based-on-a-value-of-another-item/blob/18.2.7%2B/react/src/App.js)
+[App.js](https://github.com/DevExpress-Examples/DataGrid-Master-Detail-Access-every-detail-grid-from-code/blob/master/react/src/App.js)
 
+[DetailTemplate.js](https://github.com/DevExpress-Examples/DataGrid-Master-Detail-Access-every-detail-grid-from-code/blob/master/react/src/DetailTemplate.js)
