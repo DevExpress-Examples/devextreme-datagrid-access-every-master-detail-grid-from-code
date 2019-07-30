@@ -5,7 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import 'devextreme/dist/css/dx.common.css';
-import 'devextreme/dist/css/dx.light.compact.css';
+import 'devextreme/dist/css/dx.light.css';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
