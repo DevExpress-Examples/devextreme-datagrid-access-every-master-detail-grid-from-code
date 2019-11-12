@@ -4,4 +4,6 @@ This example illustrates how to access the detail DataGrid instance from the [on
 
 The main idea is to generate every detail grid's `id` dynamically so that we can address the grid's instance in the `onClick` event handler later. Although this example is focused on the DataGrid widget, the same approach is applicable for any other widget placed into the masterDetail template.
 
+<!-- run online -->
 [Run Online](https://devexpress-examples.github.io/DataGrid-Master-Detail-Access-every-detail-grid-from-code/jquery/index.html)
+<!-- run online end -->
