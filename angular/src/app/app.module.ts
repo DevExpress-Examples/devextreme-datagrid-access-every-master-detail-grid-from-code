@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { DevExtremeModule } from 'devextreme-angular';
+import { DxDataGridModule } from 'devextreme-angular/ui/data-grid';
+import { DxButtonModule } from 'devextreme-angular/ui/button';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { DevExtremeModule } from 'devextreme-angular';
   ],
   imports: [
     BrowserModule,
-    DevExtremeModule
+    DxDataGridModule,
+    DxButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
