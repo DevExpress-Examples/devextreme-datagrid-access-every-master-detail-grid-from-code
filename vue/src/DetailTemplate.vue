@@ -1,7 +1,7 @@
 <template>
   <div> 
       <dx-button
-          text="Select row"
+          text="Focus row"
           @click="buttonClick($event, key)"
         />
       
@@ -26,7 +26,7 @@
 </template>
 <script>
 
-import { DxButton } from 'devextreme-vue';
+import { DxButton } from 'devextreme-vue/button';
 import { DxDataGrid, DxColumn } from 'devextreme-vue/data-grid';
 
 import ArrayStore from 'devextreme/data/array_store';
@@ -45,8 +45,8 @@ export default {
   },
   data() {
     return {
-      key: this.templateData.key,
-      dataSource: this.getTasks(this.templateData.key)
+      key: this.templateData.data.key,
+      dataSource: this.getTasks(this.templateData.data.key)
     };
   },
   methods: {
