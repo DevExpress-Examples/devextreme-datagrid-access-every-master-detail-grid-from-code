@@ -9,9 +9,6 @@ This example illustrates how to access the detail DataGrid instance from the [on
 
 The main idea is to generate every detail grid's `id` dynamically so that we can address the grid's instance in the `onClick` event handler later. Although this example is focused on the DataGrid widget, the same approach is applicable for any other widget placed into the masterDetail template.
 
-<!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/198618838/)**
-<!-- run online end -->
 
 <div align="center"><img alt="DevExtreme DataGrid Master-Detail - How to access every detail grid from code" src="datagrid-master-detail.png" /></div>
 
