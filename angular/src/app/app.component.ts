@@ -1,48 +1,22 @@
-import { Component } from "@angular/core";
-import { Employee, Service, Task } from "./app.service";
-import DataSource from "devextreme/data/data_source";
-import ArrayStore from "devextreme/data/array_store";
-import DataGrid from "devextreme/ui/data_grid";
+import { Component } from '@angular/core';
+import { DxButtonModule } from 'devextreme-angular/ui/button';
+import { ClickEvent } from 'devextreme/ui/button';
 
 @Component({
-  selector: 'app-root',
-  providers: [Service],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    imports: [DxButtonModule],
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  employees: Employee[];
-  tasks: Task[];
-  tasksDataSourceStorage: any;
-  
-  constructor(private service: Service) {
-    this.employees = service.getEmployees();
-    this.tasks = service.getTasks();
-    this.tasksDataSourceStorage = [];
-  }
+  title = 'Angular';
 
-  buttonClick(e, key) {
-    let detailGridId = `detailGrid${key}`;
-    let element = document.getElementById(detailGridId);
-    let instance = DataGrid.getInstance(element) as DataGrid;
-    instance.option("focusedRowIndex", 0);
-  }
+  counter = 0;
 
-  getTasks(key) {
-    let item = this.tasksDataSourceStorage.find(i => i.key === key);
-    if (!item) {
-      item = {
-        key: key,
-        dataSourceInstance: new DataSource({
-          store: new ArrayStore({
-            data: this.tasks,
-            key: "ID"
-          }),
-          filter: ["EmployeeID", "=", key]
-        })
-      };
-      this.tasksDataSourceStorage.push(item);
-    }
-    return item.dataSourceInstance;
+  buttonText = 'Click count: 0';
+
+  onClick(_e: ClickEvent): void {
+    this.counter++;
+    this.buttonText = `Click count: ${this.counter}`;
   }
 }

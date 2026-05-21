@@ -1,27 +1,33 @@
-# Angular8
+# Angular DevExtreme Example
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.29.
+For more information about this example check the [Readme](../README.md).
 
-## Development server
+## Build and Lint
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Install dependencies:
+```sh
+npm install
+```
 
-## Code scaffolding
+Start dev server:
+```sh
+npm start
+```
+Open: http://localhost:4200/
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Build production bundle:
+```sh
+npm run build
+```
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Run linter:
+```sh
+npm run lint
+```
 
 ## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Angular CLI docs: https://angular.dev/tools/cli
+DevExtreme Angular docs: https://js.devexpress.com/Angular/Documentation
+
+To get more help with DevExtreme, submit a ticket through the [Support Center](https://supportcenter.devexpress.com/ticket/create).
