@@ -13,9 +13,17 @@ namespace ASP_NET_Core.Controllers;
 [Route("api/[controller]")]
 public class SampleDataController: Controller {
 
-    [HttpGet]
-    public object Get(DataSourceLoadOptions loadOptions) {
-        return DataSourceLoader.Load(SampleData.Orders, loadOptions);
+    [HttpGet("Employees")]
+    public object GetEmployees(DataSourceLoadOptions loadOptions) {
+        return DataSourceLoader.Load(SampleData.Employees, loadOptions);
+    }
+
+    [HttpGet("Tasks")]
+    public object GetTasks(DataSourceLoadOptions loadOptions, int employeeId) {
+        return DataSourceLoader.Load(
+            SampleData.Tasks.Where(task => task.EmployeeID == employeeId),
+            loadOptions
+        );
     }
 
 }
