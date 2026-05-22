@@ -1,29 +1,58 @@
 @using ASP_NET_Core.Models
 
-<h2>Home</h2>
-
-@(Html.DevExtreme().DataGrid<SampleOrder>()
-    .ShowBorders(true)
-    .DataSource(d => d.Mvc().Controller("SampleData").LoadAction("Get").Key("OrderID"))
-    .Columns(columns => {
-        columns.AddFor(m => m.OrderID);
-        columns.AddFor(m => m.OrderDate);
-        columns.AddFor(m => m.CustomerName);
-        columns.AddFor(m => m.ShipCountry);
-        columns.AddFor(m => m.ShipCity);
-    })
-    .Paging(p => p.PageSize(10))
-    .FilterRow(f => f.Visible(true))
-    .HeaderFilter(f => f.Visible(true))
-    .GroupPanel(p => p.Visible(true))
-    .Grouping(g => g.AutoExpandAll(false))
-    .RemoteOperations(true)
-    .Summary(s => s
-        .TotalItems(totalItems => {
-            totalItems.AddFor(m => m.ShipCity).SummaryType(SummaryType.Count);
-        })
-        .GroupItems(groupItems => {
-            groupItems.Add().SummaryType(SummaryType.Count);
-        })
+@(Html.DevExtreme().DataGrid<SampleEmployee>()
+    .ID("gridContainer")
+    .DataSource(d => d.Mvc()
+        .Controller("SampleData")
+        .LoadAction("GetEmployees")
+        .Key("ID")
     )
+    .KeyExpr("ID")
+    .ShowBorders(true)
+    .Columns(columns => {
+        columns.AddFor(m => m.FirstName);
+        columns.AddFor(m => m.LastName);
+        columns.AddFor(m => m.Position);
+        columns.AddFor(m => m.State);
+        columns.AddFor(m => m.BirthDate);
+    })
+    .MasterDetail(md => {
+        md.Enabled(true);
+        md.Template(@<text>
+            @(Html.DevExtreme().Button()
+                .Text("Focus row")
+                .ElementAttr(new {
+                    style = "margin-bottom: 10px"
+                })
+                .OnClick("function() { onClick(data.ID); }")
+            )
+
+            @(Html.DevExtreme().DataGrid<SampleTask>()
+                .ID(new JS("'detailGrid' + data.ID"))
+                .FocusedRowEnabled(true)
+                .ShowBorders(true)
+                .Columns(columns => {
+                    columns.AddFor(m => m.Subject);
+                    columns.AddFor(m => m.StartDate);
+                    columns.AddFor(m => m.DueDate);
+                    columns.AddFor(m => m.Priority);
+                })
+                .DataSource(d => d.Mvc()
+                    .Controller("SampleData")
+                    .LoadAction("GetTasks")
+                    .LoadParams(new {
+                        employeeId = new JS("data.ID")
+                    })
+                    .Key("ID")
+                )
+            )
+        </text>);
+    })
 )
+
+<script>
+    function onClick(detailGridID) {
+        const detailGrid = $("#detailGrid" + detailGridID).dxDataGrid("instance");
+        detailGrid.option("focusedRowIndex", 0);
+    }
+</script>

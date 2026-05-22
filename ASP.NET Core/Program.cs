@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 namespace ASP_NET_Core;
+
 public class Program {
     public static void Main(string[] args) {
         var builder = WebApplication.CreateBuilder(args);
