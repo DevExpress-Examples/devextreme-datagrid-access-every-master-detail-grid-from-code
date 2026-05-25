@@ -39,9 +39,9 @@ function focusRow() {
     :show-borders="true"
     :focused-row-enabled="true"
   >
-    <DxColumn data-field="Subject" />
-    <DxColumn data-field="StartDate" />
-    <DxColumn data-field="DueDate" />
-    <DxColumn data-field="Priority" />
+    <DxColumn data-field="Subject"/>
+    <DxColumn data-field="StartDate"/>
+    <DxColumn data-field="DueDate"/>
+    <DxColumn data-field="Priority"/>
   </DxDataGrid>
 </template>
