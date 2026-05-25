@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { DxDataGridModule } from 'devextreme-angular';
-import { DetailGridComponent } from 'src/detail-grid/detail-grid.component';
+import { DetailGridComponent } from './detail-grid/detail-grid.component';
 import { Service, type Employee } from './app.service';
 
 @Component({

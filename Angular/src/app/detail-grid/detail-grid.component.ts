@@ -1,7 +1,7 @@
 import { Component, Input, AfterViewInit, ChangeDetectorRef, ViewChild } from '@angular/core';
 import { DxDataGridModule, DxDataGridComponent, DxButtonModule } from 'devextreme-angular';
 import { DataSource, ArrayStore } from 'devextreme-angular/common/data';
-import { Service, type Task } from '../app/app.service';
+import { Service, type Task } from '../app.service';
 
 @Component({
     selector: 'app-detail-grid',
