@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { DxDataGridModule } from 'devextreme-angular';
 import { DetailGridComponent } from 'src/detail-grid/detail-grid.component';
-import { Service, Employee } from './app.service';
+import { Service, type Employee } from './app.service';
 
 @Component({
     selector: 'app-root',
