@@ -20,12 +20,12 @@ function getTasks(key: number) {
 }
 
 function DetailTemplate(props: DataGridTypes.MasterDetailTemplateData): JSX.Element {
-  const detailGridRef = useRef<DataGridRef>(null);
+  const detailGridInstance = useRef<DataGridRef>(null);
 
   const dataSource = useMemo(() => getTasks(props.data.key), [props.data.key]);
 
   const onButtonClick = useCallback(() => {
-    detailGridRef.current?.instance().option('focusedRowIndex', 0);
+    detailGridInstance.current?.instance().option('focusedRowIndex', 0);
   }, []);
 
   return (
@@ -37,7 +37,7 @@ function DetailTemplate(props: DataGridTypes.MasterDetailTemplateData): JSX.Elem
       />
 
       <DataGrid
-        ref={detailGridRef}
+        ref={detailGridInstance}
         dataSource={dataSource}
         showBorders={true}
         focusedRowEnabled={true}
