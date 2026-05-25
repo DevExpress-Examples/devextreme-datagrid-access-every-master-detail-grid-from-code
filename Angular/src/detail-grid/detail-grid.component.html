@@ -1,0 +1,18 @@
+<dx-button 
+  text="Focus row" 
+  style="margin-bottom: 10px" 
+  (onClick)="focusRow()"
+>
+</dx-button>
+
+<dx-data-grid
+  #detailGrid
+  [dataSource]="tasksDataSource"
+  [showBorders]="true"
+  [focusedRowEnabled]="true"
+>
+  <dxi-column dataField="Subject"></dxi-column>
+  <dxi-column dataField="StartDate"></dxi-column>
+  <dxi-column dataField="DueDate"></dxi-column>
+  <dxi-column dataField="Priority"></dxi-column>
+</dx-data-grid>
