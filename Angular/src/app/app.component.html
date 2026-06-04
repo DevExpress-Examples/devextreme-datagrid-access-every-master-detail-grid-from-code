@@ -1,3 +1,23 @@
-<div class="default-style">
-  <dx-button [text]="buttonText" (onClick)="onClick($event)"></dx-button>
+<div class="demo-container">
+  <dx-data-grid
+    id="grid-container"
+    [dataSource]="employees"
+    keyExpr="ID"
+    [showBorders]="true"
+  >
+    <dxi-data-grid-column dataField="FirstName"></dxi-data-grid-column>
+    <dxi-data-grid-column dataField="LastName"></dxi-data-grid-column>
+    <dxi-data-grid-column dataField="Position"></dxi-data-grid-column>
+    <dxi-data-grid-column dataField="State"></dxi-data-grid-column>
+    <dxi-data-grid-column dataField="BirthDate"></dxi-data-grid-column>
+
+    <dxo-data-grid-master-detail
+      [enabled]="true"
+      template="detail"
+    ></dxo-data-grid-master-detail>
+
+    <div *dxTemplate="let employee of 'detail'">
+      <app-detail-grid [key]="employee.key"></app-detail-grid>
+    </div>
+  </dx-data-grid>
 </div>
