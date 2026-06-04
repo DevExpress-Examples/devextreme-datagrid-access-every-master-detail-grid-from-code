@@ -1,28 +1,31 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
-
 import 'devextreme/dist/css/dx.material.blue.light.compact.css';
-import DxButton from 'devextreme-vue/button';
+import DxDataGrid, { DxColumn, DxMasterDetail } from 'devextreme-vue/data-grid';
 
-const props = defineProps({
-  text: {
-    type: String,
-    default: 'count',
-  },
-});
-const count = ref(0);
-const buttonText = computed < string > (
-  () => `Click ${props.text}: ${count.value}`
-);
-function clickHandler() {
-  count.value += 1;
-}
+import DetailTemplate from './DetailTemplate.vue';
+import { employees } from '../data';
 </script>
+
 <template>
-  <div>
-    <DxButton
-      :text="buttonText"
-      @click="clickHandler"
+  <DxDataGrid
+    id="grid-container"
+    :data-source="employees"
+    key-expr="ID"
+    :show-borders="true"
+  >
+    <DxColumn data-field="FirstName"/>
+    <DxColumn data-field="LastName"/>
+    <DxColumn data-field="Position"/>
+    <DxColumn data-field="State"/>
+    <DxColumn data-field="BirthDate"/>
+
+    <DxMasterDetail
+      :enabled="true"
+      template="detail"
     />
-  </div>
+
+    <template #detail="{ data: employee }">
+      <DetailTemplate :data="employee"/>
+    </template>
+  </DxDataGrid>
 </template>
