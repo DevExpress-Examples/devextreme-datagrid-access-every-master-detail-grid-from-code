@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { DxButtonModule } from 'devextreme-angular/ui/button';
 import { ClickEvent } from 'devextreme/ui/button';
 
@@ -6,6 +6,7 @@ import { ClickEvent } from 'devextreme/ui/button';
     selector: 'app-root',
     imports: [DxButtonModule],
     templateUrl: './app.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
